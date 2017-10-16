@@ -1,5 +1,5 @@
-package com.huang.cn.dubbo;
+package com.huang.centralconf.manager.dubbo;
 
 public interface DubboInteface {
-	public String test(String name);
+    public String test(String name);
 }

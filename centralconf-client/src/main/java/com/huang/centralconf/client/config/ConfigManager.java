@@ -10,6 +10,7 @@ public class  ConfigManager{
 
 	private ConfigManager(){
 		PropertyConfig config = new DefaultConfig();
+		config.setProperty("abcd","adjsagfd");
 		this.map.put("propertyConfig1",config);
 	}
 	public static ConfigManager getInstance(){

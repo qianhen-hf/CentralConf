@@ -31,8 +31,15 @@ public class DefaultConfig implements PropertyConfig {
 	}
 
 	@Override
+	public List<ConfigChangeListener> getChangeListener() {
+		return listeners;
+	}
+
+	@Override
 	public void setProperty(String key, String value) {
 		property.put(key, value);
 	}
+
+
 	
 }

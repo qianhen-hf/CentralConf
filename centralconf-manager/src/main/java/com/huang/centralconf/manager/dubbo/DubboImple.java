@@ -1,13 +1,12 @@
-package com.huang.cn.dubbo;
+package com.huang.centralconf.manager.dubbo;
 
+import com.alibaba.dubbo.config.annotation.Service;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.Random;
 import java.util.concurrent.LinkedBlockingDeque;
-
-import com.alibaba.dubbo.config.annotation.Service;
 @Service
 public class DubboImple implements DubboInteface{
 
