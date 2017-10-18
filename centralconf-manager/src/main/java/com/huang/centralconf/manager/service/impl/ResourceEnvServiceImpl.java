@@ -28,7 +28,6 @@ public class ResourceEnvServiceImpl implements ResourceEnvService {
   ResEnvMapper resEnvMapper;
 
   @Override
-  @Override
   public JsonPage<ResEnvVo> getEnv(Long resId, Long id, Integer type, MyPage myPage) {
     Page<ResEnvVo> page = PageHelper.startPage(myPage.getPage(), myPage.getResults(), true);
     JsonPage<ResEnvVo> resultList = new JsonPage<ResEnvVo>(page);
@@ -36,7 +35,6 @@ public class ResourceEnvServiceImpl implements ResourceEnvService {
     resultList.setRows(ConvertUtil.copyTo(envList, ResEnvVo.class));
     return resultList;
   }
-  @Override
   @Override
   public ResEnvVo getEnvByName(Long resId, String envName) {
     ResEnv resEnvWhere = new ResEnv();
@@ -56,7 +54,6 @@ public class ResourceEnvServiceImpl implements ResourceEnvService {
   }
 
   @Override
-  @Override
   public void addenv(ResEnvVo resEnvVo) {
     ResEnv resEnv = new ResEnv();
     try {
@@ -70,7 +67,6 @@ public class ResourceEnvServiceImpl implements ResourceEnvService {
   }
 
   @Override
-  @Override
   public void delEnv(Long envId) {
     resEnvMapper.deleteByPrimaryKey(envId);
     // UserAppEnv userAppEnv = new UserAppEnv();
@@ -78,7 +74,6 @@ public class ResourceEnvServiceImpl implements ResourceEnvService {
     // userAppEnvMapper.delete(userAppEnv);
   }
 
-  @Override
   @Override
   public ResEnvVo getEnvById(Long envId) {
     ResEnv resEnv = resEnvMapper.selectByPrimaryKey(envId);
@@ -94,7 +89,6 @@ public class ResourceEnvServiceImpl implements ResourceEnvService {
     return resEnvVo;
   }
 
-  @Override
   @Override
   public List<ResEnvVo> getAllEnvByResId(Long resId) {
     ResEnv resEnvCon = new ResEnv();

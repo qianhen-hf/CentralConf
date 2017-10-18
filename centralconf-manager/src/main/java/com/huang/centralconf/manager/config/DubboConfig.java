@@ -1,14 +1,6 @@
 package com.huang.centralconf.manager.config;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import com.alibaba.dubbo.config.ApplicationConfig;
-import com.alibaba.dubbo.config.ProtocolConfig;
-import com.alibaba.dubbo.config.RegistryConfig;
-import com.alibaba.dubbo.config.spring.ServiceBean;
-import com.huang.cn.dubbo.DubboImple;
-import com.huang.cn.dubbo.DubboInteface;
 
 @SuppressWarnings("ALL")
 @Configuration

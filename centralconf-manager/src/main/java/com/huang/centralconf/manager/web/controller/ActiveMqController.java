@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.huang.cn.dubbo.DubboInteface;
+
 import com.huang.centralconf.manager.entry.po.Mail;
 import com.huang.centralconf.manager.service.ActiveMqService;
 

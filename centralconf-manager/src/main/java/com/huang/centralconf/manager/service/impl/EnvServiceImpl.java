@@ -35,7 +35,6 @@ public class EnvServiceImpl implements EnvService {
 	Environment env;
 
 	@Override
-	@Override
 	public JsonPage<AppEnvVo> getEnv(Long appId, Long id, Integer type, MyPage myPage) {
 		Page<AppEnvVo> page = PageHelper.startPage(myPage.getPage(), myPage.getResults(), true);
 		JsonPage<AppEnvVo> resultList = new JsonPage<AppEnvVo>(page);
@@ -45,7 +44,6 @@ public class EnvServiceImpl implements EnvService {
 		return resultList;
 	}
 
-	@Override
 	@Override
 	public AppEnvVo getEnvByName(Long appId, String envName) {
 		AppEnv appEnvWhere = new AppEnv();
@@ -65,7 +63,6 @@ public class EnvServiceImpl implements EnvService {
 	}
 
 	@Override
-	@Override
 	public void addenv(AppEnvVo appEnvVo) {
 		AppEnv appEnv = new AppEnv();
 		try {
@@ -79,7 +76,6 @@ public class EnvServiceImpl implements EnvService {
 	}
 
 	@Override
-	@Override
 	public void delEnv(Long appId, Long envId) {
 		appEnvMapper.deleteByPrimaryKey(envId);
 		UserAppEnv userAppEnv = new UserAppEnv();
@@ -87,7 +83,6 @@ public class EnvServiceImpl implements EnvService {
 		userAppEnvMapper.delete(userAppEnv);
 	}
 
-	@Override
 	@Override
 	public Long createCommonEnv(Long appId) {
 		AppEnv appEnv = new AppEnv();
@@ -100,7 +95,6 @@ public class EnvServiceImpl implements EnvService {
 
 	}
 
-	@Override
 	@Override
 	public String getCommonEnvName() {
 		String common = "_common";
