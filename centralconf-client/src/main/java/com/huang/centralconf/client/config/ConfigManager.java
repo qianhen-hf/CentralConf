@@ -11,13 +11,13 @@ public class  ConfigManager{
 	private ConfigManager(){
 		PropertyConfig config = new DefaultConfig();
 		config.setProperty("abcd","adjsagfd");
-		this.map.put("propertyConfig1",config);
+		this.map.put("propertyConfig",config);
 	}
 	public static ConfigManager getInstance(){
 		return configManager;
 	}
 	public PropertyConfig getConfig() {
-		return this.map.get("propertyConfig1");
+		return this.map.get("propertyConfig");
 	}
 	
 	public PropertyConfig setConfig(PropertyConfig propertyConfig) {
