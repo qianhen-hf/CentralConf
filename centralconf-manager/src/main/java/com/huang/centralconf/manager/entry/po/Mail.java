@@ -1,5 +1,6 @@
 package com.huang.centralconf.manager.entry.po;
 
+@SuppressWarnings("ALL")
 public class Mail {
 	private String from;
 	private String to;

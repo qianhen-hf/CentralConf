@@ -2,6 +2,7 @@ package com.huang.centralconf.configService.exception;
 
 import com.huang.centralconf.core.common.Errorcode;
 
+@SuppressWarnings("ALL")
 public class YtfmUserErrors {
 
 	/* 新增开始 */

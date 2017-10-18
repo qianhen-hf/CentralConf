@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.huang.centralconf.configService.entry.po.App;
 import com.huang.centralconf.configService.mapper.AppMapper;
 
+@SuppressWarnings("ALL")
 @Service
 public class AppService {
 	@Autowired

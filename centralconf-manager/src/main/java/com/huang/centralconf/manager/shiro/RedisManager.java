@@ -3,6 +3,7 @@ package com.huang.centralconf.manager.shiro;
 import java.util.List;
 import java.util.Set;
 
+@SuppressWarnings("ALL")
 public interface RedisManager {
 	
 	public void init();

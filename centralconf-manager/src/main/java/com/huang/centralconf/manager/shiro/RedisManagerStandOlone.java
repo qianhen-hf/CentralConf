@@ -9,6 +9,7 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
+@SuppressWarnings("ALL")
 public class RedisManagerStandOlone implements RedisManager {
 
 	/**
@@ -34,7 +35,8 @@ public class RedisManagerStandOlone implements RedisManager {
 	/**
 	 * 初始化方法
 	 */
-	public void init() {
+	@Override
+    public void init() {
 		if (jedisPool == null) {
 			if (password != null && !"".equals(password)) {
 				jedisPool = new JedisPool(new JedisPoolConfig(), host, port, timeout, password);
@@ -46,7 +48,8 @@ public class RedisManagerStandOlone implements RedisManager {
 		}
 	}
 
-	public byte[] hget(final byte[] key, final byte[] mapkey) {
+	@Override
+    public byte[] hget(final byte[] key, final byte[] mapkey) {
 		byte[] value = null;
 		Jedis jedis = jedisPool.getResource();
 		try {
@@ -61,7 +64,8 @@ public class RedisManagerStandOlone implements RedisManager {
 		return value;
 	}
 
-	public Long hset(final byte[] key, final byte[] mapkey, final byte[] value, Long expire) {
+	@Override
+    public Long hset(final byte[] key, final byte[] mapkey, final byte[] value, Long expire) {
 		Jedis jedis = jedisPool.getResource();
 		try {
 			return jedis.hset(key, mapkey, value);
@@ -73,7 +77,8 @@ public class RedisManagerStandOlone implements RedisManager {
 		}
 	}
 
-	public void hdel(final byte[] key, final byte[] mapkey) {
+	@Override
+    public void hdel(final byte[] key, final byte[] mapkey) {
 		Jedis jedis = jedisPool.getResource();
 		try {
 			jedis.hdel(key, mapkey);
@@ -84,7 +89,8 @@ public class RedisManagerStandOlone implements RedisManager {
 		}
 	}
 
-	public Long hlen(byte[] name) {
+	@Override
+    public Long hlen(byte[] name) {
 		Jedis jedis = jedisPool.getResource();
 		try {
 			return jedis.hlen(name);
@@ -96,7 +102,8 @@ public class RedisManagerStandOlone implements RedisManager {
 
 	}
 
-	public Set<byte[]> hkeys(byte[] name) {
+	@Override
+    public Set<byte[]> hkeys(byte[] name) {
 		Jedis jedis = jedisPool.getResource();
 		Set<byte[]> hkeys = null;
 		try {
@@ -109,7 +116,8 @@ public class RedisManagerStandOlone implements RedisManager {
 		return hkeys;
 	}
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
+    @SuppressWarnings({ "unchecked", "rawtypes" })
 	public List hvals(final byte[] key) {
 		Jedis jedis = jedisPool.getResource();
 		List<byte[]> hVals = null;
@@ -132,7 +140,8 @@ public class RedisManagerStandOlone implements RedisManager {
 	 * -----
 	 */
 
-	public String updateSession(final byte[] key, final byte[] session, final Long expire) {
+	@Override
+    public String updateSession(final byte[] key, final byte[] session, final Long expire) {
 		Jedis jedis = jedisPool.getResource();
 		try {
 			String set = jedis.set(key, session);
@@ -149,7 +158,8 @@ public class RedisManagerStandOlone implements RedisManager {
 		return null;
 	}
 
-	public void deleteSession(byte[] sessionId) {
+	@Override
+    public void deleteSession(byte[] sessionId) {
 		Jedis jedis = jedisPool.getResource();
 		try {
 			jedis.del(sessionId);
@@ -160,7 +170,8 @@ public class RedisManagerStandOlone implements RedisManager {
 		}
 	}
 
-	public Long del(byte[] sessionId) throws Exception {
+	@Override
+    public Long del(byte[] sessionId) throws Exception {
 		Jedis jedis = jedisPool.getResource();
 		try {
 			return jedis.del(sessionId);
@@ -171,7 +182,8 @@ public class RedisManagerStandOlone implements RedisManager {
 		}
 	}
 
-	public List getKeys(byte[] keys) {
+	@Override
+    public List getKeys(byte[] keys) {
 		Jedis jedis = jedisPool.getResource();
 		List list = new ArrayList();
 		try {
@@ -191,7 +203,8 @@ public class RedisManagerStandOlone implements RedisManager {
 		return list;
 	}
 
-	public Object getSession(byte[] sessionId) {
+	@Override
+    public Object getSession(byte[] sessionId) {
 		Jedis jedis = jedisPool.getResource();
 		try {
 			return SerializeUtil.unserialize(jedis.get(sessionId));

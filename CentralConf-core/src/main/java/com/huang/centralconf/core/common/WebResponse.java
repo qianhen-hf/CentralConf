@@ -1,5 +1,6 @@
 package com.huang.centralconf.core.common;
 
+@SuppressWarnings("ALL")
 public class WebResponse {
 
 

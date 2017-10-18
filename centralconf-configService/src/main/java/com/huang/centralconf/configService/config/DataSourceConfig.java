@@ -3,6 +3,7 @@ package com.huang.centralconf.configService.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+@SuppressWarnings("ALL")
 @Component
 @ConfigurationProperties(prefix = "datasource")
 public class DataSourceConfig {

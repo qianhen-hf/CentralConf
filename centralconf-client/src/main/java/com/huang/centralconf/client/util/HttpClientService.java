@@ -89,8 +89,9 @@ public class HttpClientService {
 			ExceptionUtils.throwException(e);
 		} finally {
 			try {
-				if (response != null)
+				if (response != null) {
 					response.close();
+				}
 			} catch (IOException e) {
 				httpGet.abort();
 				logger.error("access {},error {} ", url, e);
@@ -145,8 +146,9 @@ public class HttpClientService {
 			ExceptionUtils.throwException(e);
 		} finally {
 			try {
-				if (response != null)
+				if (response != null) {
 					response.close();
+				}
 			} catch (IOException e) {
 				httpPost.abort();
 				logger.error("close {},error. ", url, e);
@@ -192,8 +194,9 @@ public class HttpClientService {
 			httpPost.abort();
 		} finally {
 			try {
-				if (response != null)
+				if (response != null) {
 					response.close();
+				}
 			} catch (IOException e) {
 				httpPost.abort();
 				logger.error("access {},error {} ", url, e);

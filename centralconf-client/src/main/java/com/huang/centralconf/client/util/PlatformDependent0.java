@@ -9,7 +9,7 @@ import java.security.PrivilegedAction;
 
 import sun.misc.Unsafe;
 
-@SuppressWarnings("restriction")
+@SuppressWarnings("ALL")
 public class PlatformDependent0 {
 
 	private static final Unsafe UNSAFE;

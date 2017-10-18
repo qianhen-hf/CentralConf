@@ -14,6 +14,7 @@ import com.huang.centralconf.core.common.WebResponse;
 import com.huang.centralconf.core.common.YtException;
 import com.huang.centralconf.manager.exception.YtfmUserErrors;
 
+@SuppressWarnings("ALL")
 @RestController
 @ControllerAdvice
 public class ExceptionHandlerController {

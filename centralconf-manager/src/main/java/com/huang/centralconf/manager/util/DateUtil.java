@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@SuppressWarnings("ALL")
 public class DateUtil {
 
 	/**
@@ -118,7 +119,7 @@ public class DateUtil {
 						if ((Math.abs(dateOne - dateTwo)) < 100000000000L) {
 							timestamp = Math.max(timestampsLastTmp[0], timestampsLastTmp[1]);
 						} else {
-							long now = new Date().getTime();
+							long now = System.currentTimeMillis();
 							if (Math.abs(dateOne - now) <= Math.abs(dateTwo - now)) {
 								timestamp = dateOne;
 							} else {
@@ -377,7 +378,7 @@ public class DateUtil {
 	/**
 	 * 增加日期的小时。失败返回null。
 	 * @param date 日期字符串
-	 * @param dayAmount 增加数量。可为负数
+	 * @param --dayAmount 增加数量。可为负数
 	 * @return 增加小时后的日期字符串
 	 */
 	public static String addHour(String date, int hourAmount) {
@@ -387,7 +388,7 @@ public class DateUtil {
 	/**
 	 * 增加日期的小时。失败返回null。
 	 * @param date 日期
-	 * @param dayAmount 增加数量。可为负数
+	 * @param --dayAmount 增加数量。可为负数
 	 * @return 增加小时后的日期
 	 */
 	public static Date addHour(Date date, int hourAmount) {
@@ -397,7 +398,7 @@ public class DateUtil {
 	/**
 	 * 增加日期的分钟。失败返回null。
 	 * @param date 日期字符串
-	 * @param dayAmount 增加数量。可为负数
+	 * @param --dayAmount 增加数量。可为负数
 	 * @return 增加分钟后的日期字符串
 	 */
 	public static String addMinute(String date, int hourAmount) {
@@ -407,7 +408,7 @@ public class DateUtil {
 	/**
 	 * 增加日期的分钟。失败返回null。
 	 * @param date 日期
-	 * @param dayAmount 增加数量。可为负数
+	 * @param --dayAmount 增加数量。可为负数
 	 * @return 增加分钟后的日期
 	 */
 	public static Date addMinute(Date date, int hourAmount) {
@@ -417,7 +418,7 @@ public class DateUtil {
 	/**
 	 * 增加日期的秒钟。失败返回null。
 	 * @param date 日期字符串
-	 * @param dayAmount 增加数量。可为负数
+	 * @param --dayAmount 增加数量。可为负数
 	 * @return 增加秒钟后的日期字符串
 	 */
 	public static String addSecond(String date, int hourAmount) {
@@ -427,7 +428,7 @@ public class DateUtil {
 	/**
 	 * 增加日期的秒钟。失败返回null。
 	 * @param date 日期
-	 * @param dayAmount 增加数量。可为负数
+	 * @param --dayAmount 增加数量。可为负数
 	 * @return 增加秒钟后的日期
 	 */
 	public static Date addSecond(Date date, int hourAmount) {
@@ -625,6 +626,8 @@ public class DateUtil {
 		case 6:
 			week = Week.SATURDAY;
 			break;
+		default:
+
 		}
 		return week;
 	}

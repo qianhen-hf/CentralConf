@@ -2,6 +2,7 @@ package com.huang.centralconf.manager.util;
 
 
 
+@SuppressWarnings("ALL")
 public enum DateStyle {
 	
 	MM_DD("MM-dd"),

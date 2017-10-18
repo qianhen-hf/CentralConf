@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@SuppressWarnings("ALL")
 @Table(name = "conf_appenv")
 public class AppEnv implements Serializable {
 	/**

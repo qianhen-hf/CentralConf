@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.collect.Lists;
 
+@SuppressWarnings("ALL")
 public class DefaultConfig implements PropertyConfig {
 	private static final Logger logger = LoggerFactory.getLogger(DefaultConfig.class);
 	private List<ConfigChangeListener> listeners = Lists.newCopyOnWriteArrayList();

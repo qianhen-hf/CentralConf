@@ -11,6 +11,7 @@ import com.huang.centralconf.configService.entry.po.Item;
 import com.huang.centralconf.configService.service.ItemService;
 import com.huang.centralconf.core.common.WebResponse;
 
+@SuppressWarnings("ALL")
 @Controller
 public class ItemController {
 	@Autowired

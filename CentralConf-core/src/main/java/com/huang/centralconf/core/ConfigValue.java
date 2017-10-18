@@ -1,5 +1,6 @@
 package com.huang.centralconf.core;
 
+@SuppressWarnings("ALL")
 public class ConfigValue {
 
   private String value;

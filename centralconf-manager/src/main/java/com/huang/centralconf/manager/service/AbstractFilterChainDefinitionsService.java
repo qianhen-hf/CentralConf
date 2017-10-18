@@ -9,12 +9,14 @@ import org.apache.shiro.web.filter.mgt.PathMatchingFilterChainResolver;
 import org.apache.shiro.web.servlet.AbstractShiroFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 
+@SuppressWarnings("ALL")
 public abstract class AbstractFilterChainDefinitionsService implements FilterChainDefinitionsService {
 	@Autowired
 	private ShiroFilterFactoryBean shiroFilterFactoryBean;
 	@Autowired
 	CacheManager cacheManager;
-	public void updatePermission() throws Exception {
+	@Override
+    public void updatePermission() throws Exception {
 		synchronized (shiroFilterFactoryBean) {
 			AbstractShiroFilter shiroFilter = (AbstractShiroFilter) shiroFilterFactoryBean.getObject();
 			// 获取过滤管理器
@@ -35,5 +37,6 @@ public abstract class AbstractFilterChainDefinitionsService implements FilterCha
 		}
 	}
 
-	public abstract Map<String, String> initOtherPermission() throws Exception;
+	@Override
+    public abstract Map<String, String> initOtherPermission() throws Exception;
 }

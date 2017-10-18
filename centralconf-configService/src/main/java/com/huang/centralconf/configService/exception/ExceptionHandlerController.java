@@ -12,6 +12,7 @@ import com.huang.centralconf.core.common.WebResponse;
 import com.huang.centralconf.core.common.YtException;
 
 
+@SuppressWarnings("ALL")
 @RestController
 @ControllerAdvice
 public class ExceptionHandlerController {

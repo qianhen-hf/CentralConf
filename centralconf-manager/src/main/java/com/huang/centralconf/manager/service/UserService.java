@@ -5,6 +5,7 @@ import com.huang.centralconf.manager.entry.vo.JsonPage;
 import com.huang.centralconf.manager.entry.vo.MyPage;
 import com.huang.centralconf.manager.entry.vo.UserVo;
 
+@SuppressWarnings("ALL")
 public interface UserService {
 
 	public JsonPage<UserVo> getUserByPage(MyPage myPage);

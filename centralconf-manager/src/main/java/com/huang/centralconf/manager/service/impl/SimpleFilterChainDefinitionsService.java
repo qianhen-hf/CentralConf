@@ -12,6 +12,7 @@ import com.huang.centralconf.manager.entry.vo.PermissionVo;
 import com.huang.centralconf.manager.service.AbstractFilterChainDefinitionsService;
 import com.huang.centralconf.manager.service.PermService;
 
+@SuppressWarnings("ALL")
 @Service
 public class SimpleFilterChainDefinitionsService extends AbstractFilterChainDefinitionsService {
 	@Autowired

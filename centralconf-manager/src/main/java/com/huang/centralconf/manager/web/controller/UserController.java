@@ -15,6 +15,7 @@ import com.huang.centralconf.manager.entry.vo.UserVo;
 import com.huang.centralconf.manager.service.UserService;
 import com.huang.centralconf.manager.util.base.Const;
 
+@SuppressWarnings("ALL")
 @Controller
 public class UserController {
   @Autowired

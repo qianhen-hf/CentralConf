@@ -8,6 +8,7 @@ import com.huang.centralconf.manager.entry.vo.JsonPage;
 import com.huang.centralconf.manager.entry.vo.MyPage;
 import com.huang.centralconf.manager.entry.vo.ResourceVo;
 
+@SuppressWarnings("ALL")
 public interface ResourceService {
 
 	void addRes(ResourceVo resourceVo);

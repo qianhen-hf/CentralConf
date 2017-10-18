@@ -9,6 +9,7 @@ import com.huang.centralconf.manager.entry.vo.JsonPage;
 import com.huang.centralconf.manager.entry.vo.MyPage;
 import com.huang.centralconf.manager.entry.vo.PermissionVo;
 
+@SuppressWarnings("ALL")
 public interface PermService {
 
 	public JsonPage<PermissionVo> getAllPermByPage(MyPage myPage);

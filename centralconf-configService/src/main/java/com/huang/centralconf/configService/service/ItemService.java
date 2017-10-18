@@ -15,6 +15,7 @@ import com.huang.centralconf.configService.entry.po.AppEnv;
 import com.huang.centralconf.configService.mapper.ItemMapper;
 import com.huang.centralconf.core.common.YtException;
 
+@SuppressWarnings("ALL")
 @Service
 @Transactional
 public class ItemService {

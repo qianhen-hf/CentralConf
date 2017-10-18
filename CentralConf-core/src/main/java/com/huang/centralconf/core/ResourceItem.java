@@ -1,5 +1,6 @@
 package com.huang.centralconf.core;
 
+@SuppressWarnings("ALL")
 public class ResourceItem {
 
 	private String rsc;

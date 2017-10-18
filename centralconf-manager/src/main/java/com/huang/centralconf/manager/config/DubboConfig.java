@@ -10,6 +10,7 @@ import com.alibaba.dubbo.config.spring.ServiceBean;
 import com.huang.cn.dubbo.DubboImple;
 import com.huang.cn.dubbo.DubboInteface;
 
+@SuppressWarnings("ALL")
 @Configuration
 public class DubboConfig {
 //	@Bean

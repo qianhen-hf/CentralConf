@@ -12,6 +12,7 @@ import com.huang.centralconf.core.common.WebResponse;
 import com.huang.centralconf.manager.entry.po.User;
 import com.huang.centralconf.manager.util.base.Const;
 
+@SuppressWarnings("ALL")
 @Controller
 @RequestMapping("/qianhen/manager")
 public class LoginController {

@@ -9,6 +9,7 @@ import com.huang.cn.dubbo.DubboInteface;
 import com.huang.centralconf.manager.entry.po.Mail;
 import com.huang.centralconf.manager.service.ActiveMqService;
 
+@SuppressWarnings("ALL")
 @Controller
 public class ActiveMqController {
 	@Autowired

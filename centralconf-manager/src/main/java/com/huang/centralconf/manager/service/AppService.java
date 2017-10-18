@@ -4,6 +4,7 @@ import com.huang.centralconf.manager.entry.vo.AppVo;
 import com.huang.centralconf.manager.entry.vo.JsonPage;
 import com.huang.centralconf.manager.entry.vo.MyPage;
 
+@SuppressWarnings("ALL")
 public interface AppService {
 
 	public JsonPage<AppVo> getAllAppByPage(MyPage myPage, Long userId, Integer type);

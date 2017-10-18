@@ -37,7 +37,8 @@ import freemarker.template.utility.StringUtil;
 @Component
 public class CORSFilter implements Filter{
 
-	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {  
+	@Override
+    public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
         HttpServletResponse response = (HttpServletResponse) res;
         HttpServletRequest request = (HttpServletRequest)req;
         String referer=request.getHeader("referer");
@@ -54,8 +55,10 @@ public class CORSFilter implements Filter{
         chain.doFilter(req, res);  
     }  
   
-    public void init(FilterConfig filterConfig) {}  
+    @Override
+    public void init(FilterConfig filterConfig) {}
   
-    public void destroy() {}  
+    @Override
+    public void destroy() {}
 
 }

@@ -2,6 +2,7 @@ package com.huang.centralconf.manager.service;
 
 import java.util.Map;
 
+@SuppressWarnings("ALL")
 public interface FilterChainDefinitionsService {
 
   

@@ -10,21 +10,25 @@ import org.apache.shiro.session.mgt.eis.AbstractSessionDAO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@SuppressWarnings("ALL")
 public class RedisSessionDao extends AbstractSessionDAO {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	private RedisManager redisManager;
 	private String sessionprefix = "conf-";
 
-	public void update(Session session) throws UnknownSessionException {
+	@Override
+    public void update(Session session) throws UnknownSessionException {
 		redisManager.updateSession(session.getId().toString().getBytes(), SerializeUtil.serialize(session), session.getTimeout() / 1000);
 	}
 
-	public void delete(Session session) {
+	@Override
+    public void delete(Session session) {
 		redisManager.deleteSession(session.getId().toString().getBytes());
 	}
 
-	public Collection<Session> getActiveSessions() {
+	@Override
+    public Collection<Session> getActiveSessions() {
 		String keys = sessionprefix + "*";
 		List<Session> list = null;
 		try {

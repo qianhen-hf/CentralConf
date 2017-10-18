@@ -2,7 +2,7 @@ package com.huang.centralconf.manager.service.impl;
 
 import java.util.List;
 
-import org.apache.commons.beanutils.BeanUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
@@ -23,6 +23,7 @@ import com.huang.centralconf.manager.service.EnvService;
 import com.huang.centralconf.manager.util.ConvertUtil;
 import com.huang.centralconf.manager.util.IdGen;
 
+@SuppressWarnings("ALL")
 @Service
 @Transactional
 public class EnvServiceImpl implements EnvService {
@@ -33,6 +34,8 @@ public class EnvServiceImpl implements EnvService {
 	@Autowired
 	Environment env;
 
+	@Override
+	@Override
 	public JsonPage<AppEnvVo> getEnv(Long appId, Long id, Integer type, MyPage myPage) {
 		Page<AppEnvVo> page = PageHelper.startPage(myPage.getPage(), myPage.getResults(), true);
 		JsonPage<AppEnvVo> resultList = new JsonPage<AppEnvVo>(page);
@@ -42,6 +45,8 @@ public class EnvServiceImpl implements EnvService {
 		return resultList;
 	}
 
+	@Override
+	@Override
 	public AppEnvVo getEnvByName(Long appId, String envName) {
 		AppEnv appEnvWhere = new AppEnv();
 		appEnvWhere.setAppId(appId);
@@ -52,17 +57,19 @@ public class EnvServiceImpl implements EnvService {
 		}
 		AppEnvVo appEnvVo = new AppEnvVo();
 		try {
-			BeanUtils.copyProperties(appEnvVo, appEnv);
+			BeanUtils.copyProperties(appEnv,appEnvVo);
 		} catch (Exception e) {
 			throw new YtException(YtfmUserErrors.COPY_PROPRER);
 		}
 		return appEnvVo;
 	}
 
+	@Override
+	@Override
 	public void addenv(AppEnvVo appEnvVo) {
 		AppEnv appEnv = new AppEnv();
 		try {
-			BeanUtils.copyProperties(appEnv, appEnvVo);
+			BeanUtils.copyProperties(appEnvVo,appEnv);
 		} catch (Exception e) {
 			throw new YtException(YtfmUserErrors.COPY_PROPRER);
 		}
@@ -71,6 +78,8 @@ public class EnvServiceImpl implements EnvService {
 		appEnvMapper.insert(appEnv);
 	}
 
+	@Override
+	@Override
 	public void delEnv(Long appId, Long envId) {
 		appEnvMapper.deleteByPrimaryKey(envId);
 		UserAppEnv userAppEnv = new UserAppEnv();
@@ -78,6 +87,8 @@ public class EnvServiceImpl implements EnvService {
 		userAppEnvMapper.delete(userAppEnv);
 	}
 
+	@Override
+	@Override
 	public Long createCommonEnv(Long appId) {
 		AppEnv appEnv = new AppEnv();
 		appEnv.setEnvName(this.getCommonEnvName());
@@ -89,6 +100,8 @@ public class EnvServiceImpl implements EnvService {
 
 	}
 
+	@Override
+	@Override
 	public String getCommonEnvName() {
 		String common = "_common";
 		common = env.getProperty("env.common");
@@ -100,7 +113,7 @@ public class EnvServiceImpl implements EnvService {
 		AppEnv appEnv = appEnvMapper.selectByPrimaryKey(id);
 		AppEnvVo appEnvVo = new AppEnvVo();
 		try {
-			BeanUtils.copyProperties(appEnvVo, appEnv);
+			BeanUtils.copyProperties(appEnv,appEnvVo);
 		} catch (Exception e) {
 			throw new YtException(YtfmUserErrors.COPY_PROPRER);
 		}

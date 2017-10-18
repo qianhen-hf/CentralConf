@@ -6,6 +6,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+@SuppressWarnings("ALL")
 public class SerializeUtil {
 	public static byte[] serialize(Object object) {
 		if(object==null){

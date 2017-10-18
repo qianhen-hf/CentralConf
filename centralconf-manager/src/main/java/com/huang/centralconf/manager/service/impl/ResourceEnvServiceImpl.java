@@ -2,7 +2,7 @@ package com.huang.centralconf.manager.service.impl;
 
 import java.util.List;
 
-import org.apache.commons.beanutils.BeanUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,12 +20,15 @@ import com.huang.centralconf.manager.service.ResourceEnvService;
 import com.huang.centralconf.manager.util.ConvertUtil;
 import com.huang.centralconf.manager.util.IdGen;
 
+@SuppressWarnings("ALL")
 @Service
 @Transactional
 public class ResourceEnvServiceImpl implements ResourceEnvService {
   @Autowired
   ResEnvMapper resEnvMapper;
 
+  @Override
+  @Override
   public JsonPage<ResEnvVo> getEnv(Long resId, Long id, Integer type, MyPage myPage) {
     Page<ResEnvVo> page = PageHelper.startPage(myPage.getPage(), myPage.getResults(), true);
     JsonPage<ResEnvVo> resultList = new JsonPage<ResEnvVo>(page);
@@ -33,7 +36,8 @@ public class ResourceEnvServiceImpl implements ResourceEnvService {
     resultList.setRows(ConvertUtil.copyTo(envList, ResEnvVo.class));
     return resultList;
   }
-
+  @Override
+  @Override
   public ResEnvVo getEnvByName(Long resId, String envName) {
     ResEnv resEnvWhere = new ResEnv();
     resEnvWhere.setResId(resId);
@@ -44,17 +48,19 @@ public class ResourceEnvServiceImpl implements ResourceEnvService {
     }
     ResEnvVo resEnvVo = new ResEnvVo();
     try {
-      BeanUtils.copyProperties(resEnvVo, resEnv);
+      BeanUtils.copyProperties(resEnv,resEnvVo);
     } catch (Exception e) {
       throw new YtException(YtfmUserErrors.COPY_PROPRER);
     }
     return resEnvVo;
   }
 
+  @Override
+  @Override
   public void addenv(ResEnvVo resEnvVo) {
     ResEnv resEnv = new ResEnv();
     try {
-      BeanUtils.copyProperties(resEnv, resEnvVo);
+      BeanUtils.copyProperties(resEnvVo,resEnv);
     } catch (Exception e) {
       throw new YtException(YtfmUserErrors.COPY_PROPRER);
     }
@@ -63,6 +69,8 @@ public class ResourceEnvServiceImpl implements ResourceEnvService {
     resEnvMapper.insert(resEnv);
   }
 
+  @Override
+  @Override
   public void delEnv(Long envId) {
     resEnvMapper.deleteByPrimaryKey(envId);
     // UserAppEnv userAppEnv = new UserAppEnv();
@@ -70,6 +78,8 @@ public class ResourceEnvServiceImpl implements ResourceEnvService {
     // userAppEnvMapper.delete(userAppEnv);
   }
 
+  @Override
+  @Override
   public ResEnvVo getEnvById(Long envId) {
     ResEnv resEnv = resEnvMapper.selectByPrimaryKey(envId);
     if (resEnv == null) {
@@ -77,13 +87,15 @@ public class ResourceEnvServiceImpl implements ResourceEnvService {
     }
     ResEnvVo resEnvVo = new ResEnvVo();
     try {
-      BeanUtils.copyProperties(resEnvVo, resEnv);
+      BeanUtils.copyProperties(resEnv,resEnvVo);
     } catch (Exception e) {
       throw new YtException(YtfmUserErrors.COPY_PROPRER);
     }
     return resEnvVo;
   }
 
+  @Override
+  @Override
   public List<ResEnvVo> getAllEnvByResId(Long resId) {
     ResEnv resEnvCon = new ResEnv();
     resEnvCon.setResId(resId);

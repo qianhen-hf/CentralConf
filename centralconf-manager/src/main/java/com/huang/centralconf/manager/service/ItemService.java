@@ -8,6 +8,7 @@ import com.huang.centralconf.manager.entry.vo.ItemVo;
 import com.huang.centralconf.manager.entry.vo.JsonPage;
 import com.huang.centralconf.manager.entry.vo.MyPage;
 
+@SuppressWarnings("ALL")
 public interface ItemService {
 
 	public ItemVo getItemByName(String itemName);

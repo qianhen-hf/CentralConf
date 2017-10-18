@@ -1,5 +1,6 @@
 package com.huang.centralconf.manager.entry.vo;
 
+@SuppressWarnings("ALL")
 public class ItemVo {
 
 	/**

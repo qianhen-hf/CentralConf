@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@SuppressWarnings("ALL")
 @Table(name = "conf_bind_item")
 public class BindItem implements Serializable {
 

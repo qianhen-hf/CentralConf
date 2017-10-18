@@ -4,6 +4,7 @@ import com.huang.centralconf.manager.entry.po.Permission;
 
 import tk.mybatis.mapper.common.BaseMapper;
 
+@SuppressWarnings("ALL")
 public interface PermMapper extends BaseMapper<Permission> {
     /**
      * 权限

@@ -1,5 +1,6 @@
 package com.huang.centralconf.manager.util;
 
+@SuppressWarnings("ALL")
 public class IdGen {
 	private long workerId;
 	private long datacenterId;
@@ -17,11 +18,11 @@ public class IdGen {
 	private long lastTimestamp = -1L;
 
 	private static class IdGenHolder {
-		private static final IdGen instance = new IdGen();
+		private static final IdGen INSTANCE = new IdGen();
 	}
 
 	public static IdGen get() {
-		return IdGenHolder.instance;
+		return IdGenHolder.INSTANCE;
 	}
 
 	public IdGen() {

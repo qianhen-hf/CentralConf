@@ -30,8 +30,9 @@ public class RedisCluster extends JedisCluster {
   }
 
   private static Set<HostAndPort> toHostAndPortPair(String hostsAndPorts) {
-    if (StringUtils.isBlank(hostsAndPorts))
-      throw new IllegalArgumentException("hosts and ports is null");
+    if (StringUtils.isBlank(hostsAndPorts)) {
+        throw new IllegalArgumentException("hosts and ports is null");
+    }
     Set<HostAndPort> hostPortSet = new HashSet<HostAndPort>();
     String[] redisClusterHosts = hostsAndPorts.split(HOST_SEPARATE);
     for (String redisClusterHost : redisClusterHosts) {

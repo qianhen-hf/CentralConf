@@ -4,6 +4,7 @@ import com.huang.centralconf.manager.entry.po.User;
 
 import tk.mybatis.mapper.common.BaseMapper;
 
+@SuppressWarnings("ALL")
 public interface UserMapper extends BaseMapper<User> {
 	/**
 	 * 用户

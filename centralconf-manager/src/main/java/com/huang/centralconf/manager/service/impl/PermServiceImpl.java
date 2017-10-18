@@ -3,7 +3,7 @@ package com.huang.centralconf.manager.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.beanutils.BeanUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,12 +20,14 @@ import com.huang.centralconf.manager.mapper.PermMapper;
 import com.huang.centralconf.manager.service.PermService;
 import com.huang.centralconf.manager.util.IdGen;
 
+@SuppressWarnings("ALL")
 @Service
 @Transactional
 public class PermServiceImpl implements PermService {
   @Autowired
   PermMapper permManager;
 
+  @Override
   public JsonPage<PermissionVo> getAllPermByPage(MyPage myPage) {
     Page<PermissionVo> page = PageHelper.startPage(myPage.getPage(), myPage.getResults(), true);
     List<Permission> permList = permManager.selectAll();
@@ -34,7 +36,7 @@ public class PermServiceImpl implements PermService {
     for (Permission permission : permList) {
       PermissionVo permissionVo = new PermissionVo();
       try {
-        BeanUtils.copyProperties(permissionVo, permission);
+        BeanUtils.copyProperties(permission,permissionVo);
       } catch (Exception e) {
         throw new YtException(YtfmUserErrors.COPY_PROPRER);
       }
@@ -44,13 +46,14 @@ public class PermServiceImpl implements PermService {
     return resultList;
   }
 
+  @Override
   public List<PermissionVo> getAllPerm() {
     List<Permission> permList = permManager.selectAll();
     List<PermissionVo> result = new ArrayList<PermissionVo>();
     for (Permission permission : permList) {
       PermissionVo permissionVo = new PermissionVo();
       try {
-        BeanUtils.copyProperties(permissionVo, permission);
+        BeanUtils.copyProperties(permission,permissionVo);
       } catch (Exception e) {
         throw new YtException(YtfmUserErrors.COPY_PROPRER);
       }
@@ -59,10 +62,11 @@ public class PermServiceImpl implements PermService {
     return result;
   }
 
+  @Override
   public void createPerm(PermissionVo permissionVo) {
     Permission permission = new Permission();
     try {
-      BeanUtils.copyProperties(permission, permissionVo);
+      BeanUtils.copyProperties(permissionVo,permission);
     } catch (Exception e) {
       throw new YtException(YtfmUserErrors.COPY_PROPRER);
     }
@@ -71,32 +75,35 @@ public class PermServiceImpl implements PermService {
     permManager.insert(permission);
   }
 
+  @Override
   public Permission getPermById(Long id) {
     return permManager.selectByPrimaryKey(id);
   }
 
+  @Override
   public void delPerm(Long id) {
     permManager.deleteByPrimaryKey(id);
   }
 
+  @Override
   public void updatePerm(PermissionVo permissionVo) {
     Permission permission = new Permission();
     try {
-      BeanUtils.copyProperties(permission, permissionVo);
+      BeanUtils.copyProperties(permissionVo,permission);
     } catch (Exception e) {
       throw new YtException(YtfmUserErrors.COPY_PROPRER);
     }
     permManager.updateByPrimaryKeySelective(permission);
   }
 
-
+  @Override
   public List<PermissionVo> findFoldPermList() {
     List<Permission> selectAll = permManager.selectAll();
     List<PermissionVo> result = new ArrayList<PermissionVo>();
     for (Permission permission : selectAll) {
       PermissionVo permissionVo = new PermissionVo();
       try {
-        BeanUtils.copyProperties(permissionVo, permission);
+        BeanUtils.copyProperties(permission,permissionVo);
       } catch (Exception e) {
         e.printStackTrace();
         throw new YtException(YtfmUserErrors.COPY_PROPRER);

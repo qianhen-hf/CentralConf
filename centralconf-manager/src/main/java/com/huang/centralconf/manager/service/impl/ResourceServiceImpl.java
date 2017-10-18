@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.apache.commons.beanutils.BeanUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -51,10 +51,12 @@ public class ResourceServiceImpl implements ResourceService {
 	@Autowired
 	ItemService itemService;
 
+	@Override
+	@Override
 	public void addRes(ResourceVo resourceVo) {
 		Resource resource = new Resource();
 		try {
-			BeanUtils.copyProperties(resource, resourceVo);
+			BeanUtils.copyProperties(resourceVo,resource);
 		} catch (Exception e) {
 			throw new YtException(YtfmUserErrors.COPY_PROPRER);
 		}
@@ -63,6 +65,8 @@ public class ResourceServiceImpl implements ResourceService {
 		resourceMapper.insert(resource);
 	}
 
+	@Override
+	@Override
 	public JsonPage<ResourceVo> getAllRes(MyPage myPage, Long userId, Integer type) {
 		Page<ResourceVo> page = PageHelper.startPage(myPage.getPage(), myPage.getResults(), true);
 		List<Resource> permList = resourceMapper.selectAllByUserId(userId, type);
@@ -71,7 +75,7 @@ public class ResourceServiceImpl implements ResourceService {
 		for (Resource resource : permList) {
 			ResourceVo resourceVo = new ResourceVo();
 			try {
-				BeanUtils.copyProperties(resourceVo, resource);
+				BeanUtils.copyProperties(resource,resourceVo);
 			} catch (Exception e) {
 				throw new YtException(YtfmUserErrors.COPY_PROPRER);
 			}
@@ -81,10 +85,14 @@ public class ResourceServiceImpl implements ResourceService {
 		return resultList;
 	}
 
+	@Override
+	@Override
 	public void delRes(Long id) {
 		resourceMapper.deleteByPrimaryKey(id);
 	}
 
+	@Override
+	@Override
 	public ResourceVo getResourceByName(String resName) {
 		Resource condition = new Resource();
 		condition.setResName(resName);
@@ -94,7 +102,7 @@ public class ResourceServiceImpl implements ResourceService {
 		}
 		ResourceVo resourceVo = new ResourceVo();
 		try {
-			BeanUtils.copyProperties(resourceVo, resource);
+			BeanUtils.copyProperties(resource,resourceVo);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new YtException(YtfmUserErrors.COPY_PROPRER);
@@ -102,23 +110,29 @@ public class ResourceServiceImpl implements ResourceService {
 		return resourceVo;
 	}
 
+	@Override
+	@Override
 	public ResourceVo getResourceById(Long resId) {
 		Resource resource = resourceMapper.selectByPrimaryKey(resId);
 		ResourceVo resourceVo = new ResourceVo();
 		try {
-			BeanUtils.copyProperties(resourceVo, resource);
+			BeanUtils.copyProperties(resource,resourceVo);
 		} catch (Exception e) {
 			throw new YtException(YtfmUserErrors.COPY_PROPRER);
 		}
 		return resourceVo;
 	}
 
+	@Override
+	@Override
 	public List<ResourceVo> getAllRes() {
 		List<Resource> selectAll = resourceMapper.selectAll();
 		List<ResourceVo> copyTo = ConvertUtil.copyTo(selectAll, ResourceVo.class);
 		return copyTo;
 	}
 
+	@Override
+	@Override
 	public JsonPage<ResourceVo> getAllResourceAndEnv(Long appId, Long envId) {
 		// Map<String, Object> result = new HashMap<String, Object>();
 		JsonPage<ResourceVo> result = new JsonPage<ResourceVo>();
@@ -142,6 +156,8 @@ public class ResourceServiceImpl implements ResourceService {
 		return result;
 	}
 
+	@Override
+	@Override
 	public void addRelativeResource(Long appId, Long envId, Long resId, Long resEnvId, String itemValue) {
 		List<String> itemList = Arrays.asList(itemValue.split(","));
 		AppEnvResEnv aereSel = new AppEnvResEnv();
@@ -189,6 +205,8 @@ public class ResourceServiceImpl implements ResourceService {
 		return mapResult;
 	}
 
+	@Override
+	@Override
 	public Map<String, Map<String, Object>> getRelativeResource(Long appId, Long envId) {
 		Map<String, Map<String, Object>> mapResult = new HashMap<String, Map<String, Object>>();
 		AppEnvResEnv aereSel = new AppEnvResEnv();
@@ -208,6 +226,8 @@ public class ResourceServiceImpl implements ResourceService {
 		return mapResult;
 	}
 
+	@Override
+	@Override
 	public JsonPage<ItemVo> getBindItem(Long appId, Long envId, Long resId, Long resEnvId) {
 		List<ItemVo> envItem = itemService.getEnvItem(resId, resEnvId);
 		List<Item> list = itemService.getBindItem(appId, envId, resId, resEnvId);
@@ -227,6 +247,8 @@ public class ResourceServiceImpl implements ResourceService {
 		return result;
 	}
 
+	@Override
+	@Override
 	public Map<String, Map<String, Object>> getBindItem(Long appId, Long envId) {
 		Map<String, Map<String, Object>> mapResult = new HashMap<String, Map<String, Object>>();
 		AppEnvResEnv aereSel = new AppEnvResEnv();

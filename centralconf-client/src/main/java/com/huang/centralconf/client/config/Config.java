@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+@SuppressWarnings("ALL")
 @Configuration
 @ConfigurationProperties(prefix = "datasource")
 public class Config {
@@ -42,7 +43,7 @@ public class Config {
 		try {
 			Map<String, Object> readValue = objectMapper.readValue(httpPost, Map.class);
 			ArrayList<Map<String, String>> arrayList = (ArrayList) readValue.get("data");
-			if (readValue.get("code").equals("0")) {
+			if ("0".equals(readValue.get("code"))) {
 				for (Map<String, String> map : arrayList) {
 					ConfigManager instance = ConfigManager.getInstance();
 					PropertyConfig config = instance.getConfig();

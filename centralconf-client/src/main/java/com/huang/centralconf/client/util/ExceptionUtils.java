@@ -1,5 +1,6 @@
 package com.huang.centralconf.client.util;
 
+@SuppressWarnings("ALL")
 public class ExceptionUtils {
 
 	private static final boolean HAS_UNSAFE = hasUnsafe0();

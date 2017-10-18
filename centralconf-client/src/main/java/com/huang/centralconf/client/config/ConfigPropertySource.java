@@ -5,6 +5,7 @@ import java.util.Set;
 import org.springframework.core.env.EnumerablePropertySource;
 
 
+@SuppressWarnings("ALL")
 public class ConfigPropertySource extends EnumerablePropertySource<PropertyConfig> {
   private static final String[] EMPTY_ARRAY = new String[0];
 

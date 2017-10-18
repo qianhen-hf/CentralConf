@@ -12,11 +12,13 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 
+@SuppressWarnings("ALL")
 public class MyAuthenticationFilter extends FormAuthenticationFilter {
 	public MyAuthenticationFilter() {
 		setLoginUrl(DEFAULT_LOGIN_URL);
 	}
 
+	@Override
 	protected boolean executeLogin(ServletRequest request, ServletResponse response) throws Exception {
 		AuthenticationToken token = createToken(request, response);
 		if (token == null) {
@@ -48,6 +50,7 @@ public class MyAuthenticationFilter extends FormAuthenticationFilter {
 		}
 	}
 
+	@Override
 	protected boolean onLoginSuccess(AuthenticationToken token, Subject subject, ServletRequest request, ServletResponse response) throws Exception {
 		issueSuccessRedirect(request, response);
 		// we handled the success redirect directly, prevent the chain from

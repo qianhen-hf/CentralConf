@@ -6,6 +6,7 @@ import com.huang.centralconf.manager.entry.vo.JsonPage;
 import com.huang.centralconf.manager.entry.vo.MyPage;
 import com.huang.centralconf.manager.entry.vo.ResEnvVo;
 
+@SuppressWarnings("ALL")
 public interface ResourceEnvService {
 
 	public JsonPage<ResEnvVo> getEnv(Long resId, Long id, Integer type, MyPage myPage);

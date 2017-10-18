@@ -11,6 +11,7 @@ import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
 
 
+@SuppressWarnings("ALL")
 public class PropertySourcesProcessor implements BeanFactoryPostProcessor, EnvironmentAware {
 	private static final String PROPERTY_SOURCE_NAME = "PropertySources";
 	private static final AtomicBoolean PROPERTY_SOURCES_INITIALIZED = new AtomicBoolean(false);

@@ -4,6 +4,7 @@ import java.util.Map;
 
 import com.google.common.collect.Maps;
 
+@SuppressWarnings("ALL")
 public class  ConfigManager{
 	private static ConfigManager configManager = new ConfigManager();
 	private Map<String, PropertyConfig> map = Maps.newConcurrentMap();

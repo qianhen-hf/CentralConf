@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@SuppressWarnings("ALL")
 @Table(name = "conf_item")
 public class Item implements Serializable {
 
@@ -124,18 +125,23 @@ public class Item implements Serializable {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (obj == null) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()) {
 			return false;
+		}
 		Item other = (Item) obj;
 		if (itemName == null) {
-			if (other.itemName != null)
+			if (other.itemName != null) {
 				return false;
-		} else if (!itemName.equals(other.itemName))
+			}
+		} else if (!itemName.equals(other.itemName)) {
 			return false;
+		}
 		return true;
 	}
 

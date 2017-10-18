@@ -13,6 +13,7 @@ import com.huang.centralconf.core.common.RedisCluster;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
+@SuppressWarnings("ALL")
 public class RedisManagerCluster {
 
   // 0 - never expire

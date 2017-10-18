@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.spring.mapper.MapperScannerConfigurer;
 
+@SuppressWarnings("ALL")
 @Configuration
 public class MapperConfig {
 

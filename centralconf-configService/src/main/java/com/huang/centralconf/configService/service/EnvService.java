@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.huang.centralconf.configService.entry.po.AppEnv;
 
+@SuppressWarnings("ALL")
 @Service
 @Transactional
 public class EnvService {

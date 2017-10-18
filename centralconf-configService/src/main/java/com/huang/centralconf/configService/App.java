@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 
+@SuppressWarnings("ALL")
 @SpringBootApplication
 @EnableConfigurationProperties
 public class App {

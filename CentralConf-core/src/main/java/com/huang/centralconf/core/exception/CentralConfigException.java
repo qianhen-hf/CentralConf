@@ -1,5 +1,6 @@
 package com.huang.centralconf.core.exception;
 
+@SuppressWarnings("ALL")
 public class CentralConfigException extends RuntimeException {
 
   private static final long serialVersionUID = -1376207615655475982L;

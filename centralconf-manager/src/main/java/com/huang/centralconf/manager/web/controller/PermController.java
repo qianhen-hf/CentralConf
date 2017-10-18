@@ -14,6 +14,7 @@ import com.huang.centralconf.manager.service.FilterChainDefinitionsService;
 import com.huang.centralconf.manager.service.PermService;
 import com.huang.centralconf.manager.util.base.Const;
 
+@SuppressWarnings("ALL")
 @Controller
 public class PermController {
   @Autowired

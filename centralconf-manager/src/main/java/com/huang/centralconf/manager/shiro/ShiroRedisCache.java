@@ -9,6 +9,7 @@ import org.apache.shiro.cache.CacheException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@SuppressWarnings("ALL")
 public class ShiroRedisCache<K, V> implements Cache<K, V> {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -37,7 +38,8 @@ public class ShiroRedisCache<K, V> implements Cache<K, V> {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
+	@Override
+    @SuppressWarnings("unchecked")
 	public V get(K key) throws CacheException {
 		logger.debug("根据key从Redis中获取对象 key [" + key + "]");
 		try {
@@ -52,7 +54,8 @@ public class ShiroRedisCache<K, V> implements Cache<K, V> {
 		}
 	}
 
-	public V put(K key, V value) throws CacheException {
+	@Override
+    public V put(K key, V value) throws CacheException {
 		logger.debug("根据key从存储 key [" + key + "]");
 		try {
 			cache.hset(getByteName(), getByteKey(key), SerializeUtil.serialize(value), null);
@@ -62,7 +65,8 @@ public class ShiroRedisCache<K, V> implements Cache<K, V> {
 		}
 	}
 
-	public V remove(K key) throws CacheException {
+	@Override
+    public V remove(K key) throws CacheException {
 		logger.debug("从redis中删除 key [" + key + "]");
 		try {
 			V previous = get(key);
@@ -73,7 +77,8 @@ public class ShiroRedisCache<K, V> implements Cache<K, V> {
 		}
 	}
 
-	public void clear() throws CacheException {
+	@Override
+    public void clear() throws CacheException {
 		logger.debug("从redis中删除所有元素");
 		try {
 			cache.del(getByteName());
@@ -82,7 +87,8 @@ public class ShiroRedisCache<K, V> implements Cache<K, V> {
 		}
 	}
 
-	public int size() {
+	@Override
+    public int size() {
 		try {
 			Long longSize = new Long(cache.hlen(getByteName()));
 			return longSize.intValue();
@@ -91,7 +97,8 @@ public class ShiroRedisCache<K, V> implements Cache<K, V> {
 		}
 	}
 
-	public Set<K> keys() {
+	@Override
+    public Set<K> keys() {
 		try {
 			Set<byte[]> hKeys = cache.hkeys(getByteName());
 			Set<K> keys = new HashSet<K>();
@@ -104,7 +111,8 @@ public class ShiroRedisCache<K, V> implements Cache<K, V> {
 		}
 	}
 
-	public Collection<V> values() {
+	@Override
+    public Collection<V> values() {
 		try {
 			Collection<V> values = cache.hvals(getByteName());
 			return values;

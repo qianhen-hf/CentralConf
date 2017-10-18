@@ -1,16 +1,19 @@
 package com.huang.centralconf.core.util;
 
+@SuppressWarnings("ALL")
 public class PathUtil {
 
 
   public static String lastPath(String path) {
-    if (path == null)
+    if (path == null) {
       return null;
+    }
 
     int pathIndex = path.lastIndexOf("/");
 
-    if (pathIndex == -1)
+    if (pathIndex == -1) {
       return path;
+    }
 
     return path.substring(pathIndex + 1);
   }

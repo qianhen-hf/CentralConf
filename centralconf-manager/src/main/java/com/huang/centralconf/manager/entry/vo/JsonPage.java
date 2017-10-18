@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.github.pagehelper.Page;
 
+@SuppressWarnings("ALL")
 public class JsonPage<T> {
 
 	private List<T> rows;

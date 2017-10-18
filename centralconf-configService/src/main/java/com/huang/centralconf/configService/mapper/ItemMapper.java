@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 import tk.mybatis.mapper.common.BaseMapper;
 
+@SuppressWarnings("ALL")
 public interface ItemMapper extends BaseMapper<Item> {
 
 	List<Item> getRelationResourceItem(@Param("appId") Long appId, @Param("envId") Long envId);

@@ -58,7 +58,7 @@ public class Const {
 	/**
 	 * 用户权限不足
 	 */
-	public static final String ERROR_Permission = "用户权限不足";
+	public static final String ERROR_PERMISSION = "用户权限不足";
 	
 	public static final String NOT_FIND_DATA = "未找到数据";
 	

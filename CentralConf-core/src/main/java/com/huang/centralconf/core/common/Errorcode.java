@@ -1,5 +1,6 @@
 package com.huang.centralconf.core.common;
 
+@SuppressWarnings("ALL")
 public class Errorcode {
 
   // 错误�? 0-31位表示应用的错误编码 32-56 位表示应用的编码 57-64位表示错误的类型

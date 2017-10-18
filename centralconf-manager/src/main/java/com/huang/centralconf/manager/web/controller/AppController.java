@@ -16,6 +16,7 @@ import com.huang.centralconf.manager.service.AppService;
 import com.huang.centralconf.manager.service.UserService;
 import com.huang.centralconf.manager.util.base.Const;
 
+@SuppressWarnings("ALL")
 @RestController
 @RequestMapping("/qianhen/manager")
 public class AppController {

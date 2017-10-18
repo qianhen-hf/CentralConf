@@ -2,6 +2,7 @@ package com.huang.centralconf.manager.entry.vo;
 
 import java.util.List;
 
+@SuppressWarnings("ALL")
 public class ResourceVo {
 	/**
 	 * 

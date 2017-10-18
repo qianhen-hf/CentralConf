@@ -1,6 +1,7 @@
 package com.huang.centralconf.manager.util;
 
 
+@SuppressWarnings("ALL")
 public enum Week {
 
 	MONDAY("星期一", "Monday", "Mon.", 1),

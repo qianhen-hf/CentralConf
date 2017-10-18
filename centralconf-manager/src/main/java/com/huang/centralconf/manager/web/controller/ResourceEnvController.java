@@ -24,6 +24,7 @@ import com.huang.centralconf.manager.service.ResourceService;
 import com.huang.centralconf.manager.service.UserService;
 import com.huang.centralconf.manager.util.base.Const;
 
+@SuppressWarnings("ALL")
 @Controller
 @RequestMapping("/qianhen/manager")
 public class ResourceEnvController {
